@@ -1,4 +1,4 @@
-package mq.org.breadcrumbs;
+package mq.org.eventure;
 
 import android.content.Intent;
 import android.os.Bundle;

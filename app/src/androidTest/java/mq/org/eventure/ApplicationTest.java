@@ -1,4 +1,4 @@
-package mq.org.breadcrumbs;
+package mq.org.eventure;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
