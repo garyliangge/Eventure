@@ -3,10 +3,6 @@ package mq.org.eventure;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-
-import mq.org.eventure.R;
 
 /**
  * Created by Michael on 2/18/16.
@@ -17,13 +13,6 @@ public class FeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
-
-        ((Button)findViewById(R.id.mapButton)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMap();
-            }
-        });
     }
 
     private void openMap(){

@@ -37,8 +37,8 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="mq.org.eventure.MapActivity"
-            android:label="@string/title_activity_maps" >
+            android:name="mq.org.eventure.TabActivity"
+            android:label="Eventure" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,6 +48,9 @@
 
         <activity android:name="mq.org.eventure.FeedActivity"
             android:label="Feed"></activity>
+
+        <activity android:name="mq.org.eventure.MapActivity"
+            android:label="Map"></activity>
     </application>
 
 </manifest>

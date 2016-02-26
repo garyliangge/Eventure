@@ -11,21 +11,21 @@
         android:textSize="80sp"
         android:gravity="center"
         android:layout_weight="1" android:id="@+id/map" />
-    <LinearLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:layout_weight="8">
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="MAP"
-            android:id="@+id/mapButton"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="FEED"
-            android:id="@+id/feedButton"/>
-    </LinearLayout>
+    <!--<LinearLayout-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_weight="8">-->
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="MAP"-->
+            <!--android:id="@+id/mapButton"/>-->
+        <!--<Button-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="FEED"-->
+            <!--android:id="@+id/feedButton"/>-->
+    <!--</LinearLayout>-->
 </LinearLayout>
