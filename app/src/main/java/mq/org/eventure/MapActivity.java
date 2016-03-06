@@ -24,33 +24,33 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        minDistance = 1000;
-        maxDistance = 10000;
-
-        distance = minDistance;
-        ((TextView)findViewById(R.id.currentRadius)).setText(distance + " meter radius");
-
-        //replace GOOGLE MAP fragment in this Activity
-        replaceMapFragment();
-
-        ((SeekBar)findViewById(R.id.seekBar1)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                    distance = 1000 + ((maxDistance - minDistance) / 9) * progress;
-                    ((TextView)findViewById(R.id.currentRadius)).setText(distance + " meter radius");
-                    redraw();
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
+//        minDistance = 1000;
+//        maxDistance = 10000;
+//
+//        distance = minDistance;
+//        ((TextView)findViewById(R.id.currentRadius)).setText(distance + " meter radius");
+//
+//        //replace GOOGLE MAP fragment in this Activity
+//        replaceMapFragment();
+//
+//        ((SeekBar)findViewById(R.id.seekBar1)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                    distance = 1000 + ((maxDistance - minDistance) / 9) * progress;
+//                    ((TextView)findViewById(R.id.currentRadius)).setText(distance + " meter radius");
+//                    redraw();
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//
+//            }
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//
+//            }
+//        });
     }
 
     private void replaceMapFragment() {

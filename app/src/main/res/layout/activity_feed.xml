@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--android:orientation="vertical" android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent">-->
-    <!--<TextView-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:background="#CCDDCC"-->
-        <!--android:textColor="#FFFFFF"-->
-        <!--android:text="TEST FEED PLEASE IGNORE"-->
-        <!--android:textSize="80sp"-->
-        <!--android:gravity="center"-->
-        <!--android:layout_weight="1" android:id="@+id/map" />-->
-    <!--<ListView-->
-        <!--android:id="@+id/eventlist"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_width="match_parent">-->
-    <!--</ListView>-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="0dp"
+    android:orientation="vertical"
+    android:background="#000000" >
 
-
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/eventTextView"
+    <ImageView
+        android:id="@+id/photo"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:padding="10dp"
-        android:textSize="20sp"
-        android:background="#435158"
-        android:textColor="#ffc321" >
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="0dp" >
+        <!--android:scaleType="fitCenter" >-->
+    </ImageView>
+
+    <TextView
+        android:id="@+id/caption"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="0dp"
+        android:textSize="17sp"
+        android:textColor="#FFFFFF" >
     </TextView>
-<!--</LinearLayout>-->
+
+</LinearLayout>
