@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="0dp"
+    android:orientation="vertical"
+    android:background="#000000" >
+
+    <ImageView
+        android:id="@+id/photo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="0dp" >
+        <!--android:scaleType="fitCenter" >-->
+    </ImageView>
+
     <TextView
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:background="#CCDDCC"
-        android:textColor="#FFFFFF"
-        android:text="TEST FEED PLEASE IGNORE"
-        android:textSize="80sp"
-        android:gravity="center"
-        android:layout_weight="1" android:id="@+id/map" />
-    <!--<LinearLayout-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_weight="8">-->
-        <!--<Button-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight="1"-->
-            <!--android:text="MAP"-->
-            <!--android:id="@+id/mapButton"/>-->
-        <!--<Button-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight="1"-->
-            <!--android:text="FEED"-->
-            <!--android:id="@+id/feedButton"/>-->
-    <!--</LinearLayout>-->
+        android:id="@+id/caption"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="0dp"
+        android:textSize="17sp"
+        android:textColor="#FFFFFF" >
+    </TextView>
+
 </LinearLayout>

@@ -1,24 +1,50 @@
 package mq.org.eventure;
 
+import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+import android.widget.AdapterView.OnItemClickListener;
+
 
 /**
  * Created by Michael on 2/18/16.
  */
-public class FeedActivity extends AppCompatActivity {
+public class FeedActivity extends ListActivity {
+
+
+    static final String[] EVENTS = new String[] {
+            "Campanile",
+            "Sproul Protest",
+            "Sather Gate" };
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed);
+        setListAdapter(new EventArrayAdapter(this, EVENTS));
     }
 
-    private void openMap(){
-        Intent intent = new Intent(this, MapActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.move_in_right, R.anim.move_out_right);
-        finish();
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+
+        String selectedValue = (String) getListAdapter().getItem(position);
+        Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
     }
+
+
+
+
 }

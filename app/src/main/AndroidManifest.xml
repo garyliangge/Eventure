@@ -15,7 +15,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-
         <uses-feature
             android:glEsVersion="0x00020000"
             android:required="true" />
@@ -37,20 +36,28 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="mq.org.eventure.TabActivity"
-            android:label="Eventure" >
+            android:name=".TabActivity"
+            android:label="Eventure"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="mq.org.eventure.FeedActivity"
-            android:label="Feed"></activity>
-
-        <activity android:name="mq.org.eventure.MapActivity"
-            android:label="Map"></activity>
+        <activity
+            android:name=".FeedActivity"
+            android:label="Feed" />
+        <activity
+            android:name=".MapActivity"
+            android:label="Map"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity
+            android:name=".UploadActivity"
+            android:label="@string/title_activity_upload">
+        </activity>
     </application>
 
 </manifest>
