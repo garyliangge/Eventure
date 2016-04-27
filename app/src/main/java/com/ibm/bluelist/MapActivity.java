@@ -34,6 +34,7 @@ import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Calendar;
 import java.util.LinkedList;
 
 
@@ -175,7 +176,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     }
 
     public void uploadAtLocation(String name, String image, String icon) {
-        mApplication.addTodoItem(name, image, icon, loc.longitude, loc.latitude);
+        Calendar c = Calendar.getInstance();
+        mApplication.addTodoItem(name, image, icon, loc.longitude, loc.latitude, c.getTimeInMillis());
         redraw();
     }
 

@@ -66,6 +66,7 @@ public class BlueListApplication extends Application {
     public static final String TODO_ITEM_LAT_KEY = "lat";
     public static final String TODO_ITEM_ICON_KEY = "icon";
     public static final String TODO_ITEM_IMAGE_KEY = "image";
+    public static final String TODO_ITEM_TIME_KEY = "time";
     private static final String DATASTORE_DIR_NAME = "BlueListDatastores";
     private static final String BLUELIST_PROPERTIES_FILE = "bluelist.properties";
     private static final String PROP_NAME_APP_ROUTE = "applicationRoute";
@@ -236,7 +237,7 @@ public class BlueListApplication extends Application {
      * @param name - The name of the TodoItem
      * @return The DocumentRevision of the created TodoItem
      */
-    public DocumentRevision addTodoItem(final String name, final String image, final String icon, final Double lon, final Double lat) {
+    public DocumentRevision addTodoItem(final String name, final String image, final String icon, final Double lon, final Double lat, final long time) {
         MutableDocumentRevision todoItem = new MutableDocumentRevision();
         todoItem.body = DocumentBodyFactory.create(new HashMap<String, Object>() {{
             put(DATATYPE_KEY, TODO_ITEM_DATATYPE);
@@ -245,6 +246,7 @@ public class BlueListApplication extends Application {
             put(TODO_ITEM_LAT_KEY, lat);
             put(TODO_ITEM_IMAGE_KEY, image);
             put(TODO_ITEM_ICON_KEY, icon);
+            put(TODO_ITEM_TIME_KEY, time);
         }});
 
         try {

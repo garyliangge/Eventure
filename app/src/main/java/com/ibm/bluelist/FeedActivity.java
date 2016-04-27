@@ -13,10 +13,10 @@ import com.cloudant.sync.datastore.DocumentRevision;
 import com.cloudant.sync.query.QueryResult;
 
 import java.text.DecimalFormat;
-import java.util.HashMap;
+import java.util.Calendar;
+import java.util.Comparator;
 import java.util.LinkedList;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.PriorityQueue;
 
 
 /**
@@ -40,31 +40,61 @@ public class FeedActivity extends ListActivity {
     }
 
     private void sync() {
-        HashMap<Float, DocumentRevision> distances = new HashMap<>();
+        PriorityQueue<Container> containers = new PriorityQueue<>(5, new ContainerComparator());
         LinkedList<Bitmap> images = new LinkedList<>();
         LinkedList<String> names = new LinkedList<>();
         LinkedList<Float> calculated = new LinkedList<>();
+        LinkedList<Long> times = new LinkedList<>();
 
         QueryResult result = mApplication.getAllItems();
         if (result == null) {
             return;
         }
+        Calendar ca = Calendar.getInstance();
         for (DocumentRevision d : result) {
             double lon = (double) d.getBody().asMap().get(BlueListApplication.TODO_ITEM_LON_KEY);
             double lat = (double) d.getBody().asMap().get(BlueListApplication.TODO_ITEM_LAT_KEY);
 
-            distances.put(roundTwoD(distFrom((float) ((TabActivity) getParent()).getLoc().latitude,
-                    (float) ((TabActivity) getParent()).getLoc().longitude, (float) lat, (float) lon)), d);
+            containers.add(new Container(d, roundTwoD(distFrom((float) ((TabActivity) getParent()).getLoc().latitude,
+                    (float) ((TabActivity) getParent()).getLoc().longitude, (float) lat, (float) lon)),
+                    ca.getTimeInMillis() - (long) d.getBody().asMap().get(BlueListApplication.TODO_ITEM_TIME_KEY)));
         }
 
-        SortedSet<Float> keys = new TreeSet<Float>(distances.keySet());
-        for (float key : keys) {
-            calculated.add(key);
-            names.add((String) distances.get(key).getBody().asMap().get(BlueListApplication.TODO_ITEM_NAME_KEY));
-            String s = (String) distances.get(key).getBody().asMap().get(BlueListApplication.TODO_ITEM_IMAGE_KEY);
+        for (Container c : containers) {
+            calculated.add(c.distance);
+            times.add(c.time);
+            names.add((String) c.document.getBody().asMap().get(BlueListApplication.TODO_ITEM_NAME_KEY));
+            String s = (String) c.document.getBody().asMap().get(BlueListApplication.TODO_ITEM_IMAGE_KEY);
             images.add(getBitmapFromString(s));
         }
-        setListAdapter(new EventArrayAdapter(this, images, names, calculated));
+        setListAdapter(new EventArrayAdapter(this, images, names, calculated, times));
+    }
+
+    private class Container {
+        DocumentRevision document;
+        float distance;
+        long time;
+
+        public Container(DocumentRevision d, float f, long l) {
+            document = d;
+            distance = f;
+            time = l;
+        }
+    }
+
+    private class ContainerComparator implements Comparator<Container>
+    {
+        public int compare(Container c1, Container c2)
+        {
+            Calendar c = Calendar.getInstance();
+            if (c1.distance + (c.getTimeInMillis() - c1.time) / 60000 > c2.distance + (c.getTimeInMillis() - c2.time) / 60000) {
+                return -1;
+            } else if (c1.distance + (c.getTimeInMillis() - c1.time) / 60000 < c2.distance + (c.getTimeInMillis() - c2.time) / 60000) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
     }
 
     private float roundTwoD(float d) {
