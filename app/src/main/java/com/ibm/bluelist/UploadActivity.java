@@ -47,7 +47,7 @@ public class UploadActivity extends AppCompatActivity {
                 EditText itemToAdd = (EditText) findViewById(R.id.todo);
                 final String name = itemToAdd.getText().toString();
                 // If text was added, continue with normal operations
-                if (!name.isEmpty()) {
+                if (!name.isEmpty() && photo != null) {
                     ((TabActivity) getParent()).upload(name, getStringFromBitmap(photo), getStringFromBitmap(icon));
                     clear();
                     ((TabActivity) getParent()).goToMap();
